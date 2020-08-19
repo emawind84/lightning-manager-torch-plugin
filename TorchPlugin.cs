@@ -1,4 +1,5 @@
 ﻿using NLog;
+using Sandbox.Game;
 using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,10 @@ namespace TorchPlugin
                 {
                     Log.Info("Found entity: " + entity.GetFriendlyName());
                 }
+                
+                MyVisualScriptLogicProvider.AddToPlayersInventory();
                 // do stuff here
+
             }
             catch (Exception e)
             {
