@@ -17,16 +17,8 @@ using Torch.Session;
 using VRage.Game;
 using VRage.ModAPI;
 
-namespace MyFirstPlugin
+namespace TorchPlugin
 {
-    public class TestConfig : ViewModel
-    {
-
-        private Persistent<TestConfig> _config;
-        public TestConfig Config => _config?.Data;
-
-    }
-
     public class MyPlugin : TorchPluginBase
     {
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
