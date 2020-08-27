@@ -7,8 +7,8 @@
     <ProjectGuid>{B2D7F36E-3016-46DD-A37B-1A4E15CA0F6B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TorchPlugin</RootNamespace>
-    <AssemblyName>TorchPlugin</AssemblyName>
+    <RootNamespace>LightningManager</RootNamespace>
+    <AssemblyName>LightningManager</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -99,8 +99,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestConfig.cs" />
-    <Compile Include="TorchPlugin.cs" />
+    <Compile Include="LightningManagerConfig.cs" />
+    <Compile Include="MyExplosionsPatch.cs" />
+    <Compile Include="MySlimBlockPatch.cs" />
+    <Compile Include="MySectorWeatherComponentPatch.cs" />
+    <Compile Include="LightningManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCommand.cs" />
   </ItemGroup>
