@@ -1,10 +1,10 @@
 ## Torch Plugin
 
-# LightningManager
+# Lightning Manager
 
 With this plugin is possible to change some lightning properties like damage and interval between lightnings (random, player and grid).
 
-After you start Torch with this plugin, a configuration file is created inside the Instance folder, `LighningManager.cfg`. After you change the file you need to restart Torch.
+After you start Torch, a configuration file is created inside the Instance folder, `LightningManager.cfg`. After you change the file you need to restart Torch.
 
 You can change the properties directly inside the file, no gui is provided at the moment.
 
