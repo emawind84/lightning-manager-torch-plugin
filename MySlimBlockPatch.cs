@@ -35,7 +35,7 @@ namespace LightningManager
 
         public static bool LogBlockDamage(MySlimBlock __instance, ref float damage, ref MyStringHash damageType)
         {
-            Log.Debug($"Block damage ({damageType}): {damage}");
+            Log.Trace($"Block damage ({damageType}): {damage}");
             
             return true;
         }

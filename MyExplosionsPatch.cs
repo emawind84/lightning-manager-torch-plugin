@@ -20,17 +20,17 @@ namespace LightningManager
     {
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-        internal static readonly MethodInfo update =
+        internal static readonly MethodInfo addExplosion =
             typeof(MyExplosions).GetMethod(nameof(MyExplosions.AddExplosion), BindingFlags.Static | BindingFlags.Public) ??
             throw new Exception("Failed to find patch method");
 
-        internal static readonly MethodInfo updatePatch =
+        internal static readonly MethodInfo addExplosionPatch =
             typeof(MyExplosionsPatch).GetMethod(nameof(DoBeforeAddExplosion), BindingFlags.Static | BindingFlags.Public) ??
             throw new Exception("Failed to find patch method");
 
         public static void Patch(PatchContext ctx)
         {
-            ctx.GetPattern(update).Prefixes.Add(updatePatch);
+            ctx.GetPattern(addExplosion).Prefixes.Add(addExplosionPatch);
             Log.Debug("Patching Successful MyExplosions!");
         }
 
@@ -41,7 +41,8 @@ namespace LightningManager
                 explosionInfo.HitEntity = new VRage.Game.Entity.MyEntity();  // bug fix armor blocks get destroyed at the first hit
             }
 
-            explosionInfo.Damage = LightningManager.LightningDamage;
+            // this change damage for every explosion
+            //explosionInfo.Damage = LightningManager.LightningDamage;
 
             return true;
         }

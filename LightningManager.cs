@@ -1,5 +1,7 @@
 ﻿using NLog;
+using Sandbox.Definitions;
 using Sandbox.Game;
+using Sandbox.Game.SessionComponents;
 using Sandbox.Game.World;
 using Sandbox.ModAPI;
 using System;
@@ -30,11 +32,11 @@ namespace LightningManager
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
         private Persistent<LightningManagerConfig> _config;
-        public LightningManagerConfig Config => _config?.Data;
-
-        public static int LightningDamage;
+        public static LightningManagerConfig Config;
 
         private readonly Stopwatch stopWatch = new Stopwatch();
+
+        private readonly double PluginCycleInSeconds = 10;
 
         /// <inheritdoc />
         public override void Init(ITorchBase torch)
@@ -45,9 +47,13 @@ namespace LightningManager
             
             var sessionManager = Torch.Managers.GetManager<TorchSessionManager>();
             if (sessionManager != null)
+            {
                 sessionManager.SessionStateChanged += SessionChanged;
+            }
             else
+            {
                 Log.Warn("No session manager loaded!");
+            }
         }
 
         public override void Update()
@@ -57,7 +63,6 @@ namespace LightningManager
 
             try
             {
-
                 /* stopWatch not running? Nothing to do */
                 if (!stopWatch.IsRunning)
                     return;
@@ -67,39 +72,15 @@ namespace LightningManager
                     return;
 
                 var elapsed = stopWatch.Elapsed;
-                if (elapsed.TotalSeconds < TimeSpan.FromSeconds(10).TotalSeconds)
+                if (elapsed.TotalSeconds < PluginCycleInSeconds)
                     return;
-
-                //var entities = new HashSet<IMyEntity>();
-                //MyAPIGateway.Entities.GetEntities(entities);
-                //foreach (var entity in entities)
-                //{
-                //    Log.Info("Found entity: " + entity.GetFriendlyName());
-                //}
-
-                ////MyVisualScriptLogicProvider.AddToPlayersInventory();
                 
-                //Log.Info("do stuff here");
-                //foreach (var mod in MySession.Static.Mods)
-                //{
-                //    Log.Info("Mod loaded: " + mod.FriendlyName);
-                //}
-
                 MyAPIGateway.Utilities.InvokeOnGameThread(() => {
-                    //DO STUFF
 
-                    //MyAPIGateway.Players.GetPlayers(players);
+                    IMyWeatherEffects effects = Torch.CurrentSession.KeenSession.WeatherEffects;
                     var players = MySession.Static.Players.GetOnlinePlayers();
-                    
                     foreach (var player in players)
                     {
-                        //Log.Info(player.DisplayName);
-                        //MySession.Static.Players.TryGetSteamId()
-                        //Torch.CurrentSession.Managers.GetManager<ChatManagerServer>()?.SendMessageAsOther("Bubba", "AAAAAA", Color.Red, player.Client.SteamUserId);
-                        //Plugin.Instance.Torch.CurrentSession.Managers.GetManager<ChatManagerServer>()?.SendMessageAsOther(AuthorName, StringMsg, Color, ulong);
-                        //items.Add()
-
-                        IMyWeatherEffects effects = Torch.CurrentSession.KeenSession.WeatherEffects;
                         string weather = effects.GetWeather(player.GetPosition());
                         float intensity = effects.GetWeatherIntensity(player.GetPosition());
                         Log.Debug($"Weather {weather} intensity near {player.DisplayName} is {intensity}");
@@ -109,9 +90,6 @@ namespace LightningManager
                 });
 
                 stopWatch.Restart();
-
-                // do stuff here
-
             }
             catch (Exception e)
             {
@@ -153,7 +131,7 @@ namespace LightningManager
                 _config.Save();
             }
 
-            LightningDamage = Config.LightningDamage;
+            Config = _config?.Data;
         }
 
         private void SessionChanged(ITorchSession session, TorchSessionState newState)

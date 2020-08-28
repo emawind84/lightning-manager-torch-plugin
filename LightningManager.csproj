@@ -100,12 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LightningManagerConfig.cs" />
+    <Compile Include="MyDefinitionManagerPatch.cs" />
     <Compile Include="MyExplosionsPatch.cs" />
     <Compile Include="MySlimBlockPatch.cs" />
     <Compile Include="MySectorWeatherComponentPatch.cs" />
     <Compile Include="LightningManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="manifest.xml">
