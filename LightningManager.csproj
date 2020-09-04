@@ -100,11 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LightningManagerConfig.cs" />
-    <Compile Include="MyDefinitionManagerPatch.cs" />
-    <Compile Include="MyExplosionsPatch.cs" />
-    <Compile Include="MySlimBlockPatch.cs" />
-    <Compile Include="MySectorWeatherComponentPatch.cs" />
-    <Compile Include="LightningManager.cs" />
+    <Compile Include="Patches\MyDefinitionManagerPatch.cs" />
+    <Compile Include="Patches\MyExplosionsPatch.cs" />
+    <Compile Include="Patches\MySlimBlockPatch.cs" />
+    <Compile Include="Patches\MySectorWeatherComponentPatch.cs" />
+    <Compile Include="LightningManagerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

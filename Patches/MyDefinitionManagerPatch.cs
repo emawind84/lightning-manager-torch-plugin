@@ -41,18 +41,18 @@ namespace LightningManager
             {
                 var weatherDefinition = __result;
 
-                if (LightningManager.Config.LightningCharacterHitIntervalMax != -1)
-                    weatherDefinition.LightningCharacterHitIntervalMax = LightningManager.Config.LightningCharacterHitIntervalMax;
-                if (LightningManager.Config.LightningCharacterHitIntervalMin != -1)
-                    weatherDefinition.LightningCharacterHitIntervalMin = LightningManager.Config.LightningCharacterHitIntervalMin;
-                if (LightningManager.Config.LightningGridHitIntervalMax != -1)
-                    weatherDefinition.LightningGridHitIntervalMax = LightningManager.Config.LightningGridHitIntervalMax;
-                if (LightningManager.Config.LightningGridHitIntervalMin != -1)
-                    weatherDefinition.LightningGridHitIntervalMin = LightningManager.Config.LightningGridHitIntervalMin;
-                if (LightningManager.Config.LightningIntervalMax != -1)
-                    weatherDefinition.LightningIntervalMax = LightningManager.Config.LightningIntervalMax;
-                if (LightningManager.Config.LightningIntervalMin != -1)
-                    weatherDefinition.LightningIntervalMin = LightningManager.Config.LightningIntervalMin;
+                if (LightningManagerPlugin.Config.LightningCharacterHitIntervalMax != -1)
+                    weatherDefinition.LightningCharacterHitIntervalMax = LightningManagerPlugin.Config.LightningCharacterHitIntervalMax;
+                if (LightningManagerPlugin.Config.LightningCharacterHitIntervalMin != -1)
+                    weatherDefinition.LightningCharacterHitIntervalMin = LightningManagerPlugin.Config.LightningCharacterHitIntervalMin;
+                if (LightningManagerPlugin.Config.LightningGridHitIntervalMax != -1)
+                    weatherDefinition.LightningGridHitIntervalMax = LightningManagerPlugin.Config.LightningGridHitIntervalMax;
+                if (LightningManagerPlugin.Config.LightningGridHitIntervalMin != -1)
+                    weatherDefinition.LightningGridHitIntervalMin = LightningManagerPlugin.Config.LightningGridHitIntervalMin;
+                if (LightningManagerPlugin.Config.LightningIntervalMax != -1)
+                    weatherDefinition.LightningIntervalMax = LightningManagerPlugin.Config.LightningIntervalMax;
+                if (LightningManagerPlugin.Config.LightningIntervalMin != -1)
+                    weatherDefinition.LightningIntervalMin = LightningManagerPlugin.Config.LightningIntervalMin;
             }
         }
     }

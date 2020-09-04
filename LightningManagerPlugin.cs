@@ -27,7 +27,7 @@ using VRageMath;
 
 namespace LightningManager
 {
-    public class LightningManager : TorchPluginBase
+    public class LightningManagerPlugin : TorchPluginBase
     {
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
