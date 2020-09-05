@@ -38,8 +38,8 @@ namespace LightningManager
         {
             if (lightning != null)
             {
-                if (LightningManager.Config.LightningDamage != -1)
-                    lightning.Damage = LightningManager.Config.LightningDamage;
+                if (LightningManagerPlugin.Config.LightningDamage != -1)
+                    lightning.Damage = LightningManagerPlugin.Config.LightningDamage;
                 Log.Trace($"Lightning damage: {lightning.Damage} - damageflag: {doDamage}");
             }
         }
