@@ -10,3 +10,7 @@ You can change the properties directly inside the file, no gui is provided at th
 
 ## Armor blocks directly hit by lightning take damage
 This plugin also fix a 'bug' where Armor Blocks are instantly destroyed by a lightning if hit directly, armor blocks will take damage and be deformed like any other block based on their integrity and deformation ratio.
+
+## GitHub
+
+[https://github.com/emawind84/lightning-manager-torch-plugin](https://github.com/emawind84/lightning-manager-torch-plugin)
