@@ -14,7 +14,7 @@ using VRage.Utils;
 
 namespace LightningManager
 {
-    [PatchShim]
+    //[PatchShim]
     public static class MySlimBlockPatch
     {
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
@@ -24,7 +24,7 @@ namespace LightningManager
             throw new Exception("Failed to find patch method");
 
         internal static readonly MethodInfo doDamagePatch =
-            typeof(MySlimBlockPatch).GetMethod(nameof(LogBlockDamage), BindingFlags.Static | BindingFlags.Public) ??
+            typeof(MySlimBlockPatch).GetMethod(nameof(LogBlockDamage), BindingFlags.Public) ??
             throw new Exception("Failed to find patch method");
 
         public static void Patch(PatchContext ctx)
