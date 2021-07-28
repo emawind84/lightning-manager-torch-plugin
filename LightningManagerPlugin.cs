@@ -75,19 +75,19 @@ namespace LightningManager
                 if (elapsed.TotalSeconds < PluginCycleInSeconds)
                     return;
                 
-                MyAPIGateway.Utilities.InvokeOnGameThread(() => {
+                //MyAPIGateway.Utilities.InvokeOnGameThread(() => {
 
-                    IMyWeatherEffects effects = Torch.CurrentSession.KeenSession.WeatherEffects;
-                    var players = MySession.Static.Players.GetOnlinePlayers();
-                    foreach (var player in players)
-                    {
-                        string weather = effects.GetWeather(player.GetPosition());
-                        float intensity = effects.GetWeatherIntensity(player.GetPosition());
-                        Log.Debug($"Weather {weather} intensity near {player.DisplayName} is {intensity}");
+                //    IMyWeatherEffects effects = Torch.CurrentSession.KeenSession.WeatherEffects;
+                //    var players = MySession.Static.Players.GetOnlinePlayers();
+                //    foreach (var player in players)
+                //    {
+                //        string weather = effects.GetWeather(player.GetPosition());
+                //        float intensity = effects.GetWeatherIntensity(player.GetPosition());
+                //        Log.Debug($"Weather {weather} intensity near {player.DisplayName} is {intensity}");
                         
-                    }
+                //    }
                     
-                });
+                //});
 
                 stopWatch.Restart();
             }
